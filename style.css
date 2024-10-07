@@ -1,0 +1,280 @@
+/* Basic styles for all screen sizes */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive, 'Poppins', sans-serif;
+    box-sizing: border-box;
+    color: black;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #CDC1FF, #E5D9F2);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-app {
+    width: 90%;
+    max-width: 600px;
+    /* Maximum width for larger screens */
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-app h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.todo-app h1 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: #E5D9F2;
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #CDC1FF, #E5D9F2);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to left, #CDC1FF, #E5D9F2);
+}
+
+ul li {
+    list-style: none;
+    font-size: 1rem;
+    padding: 10px 8px 10px 40px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-image: url(./imgs/download.png);
+    background-size: cover;
+    background-position: center;
+    top: 10px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(./imgs/checked.jpg);
+}
+
+ul li span {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: #edeef0;
+}
+
+/* Styling for the message displayed when input is empty */
+.message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffdddd;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive design: adjustments for smaller screens (tablets and mobiles) */
+@media (max-width: 768px) {
+    .todo-app {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .todo-app h1 {
+        font-size: 1.5rem;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    ul li {
+        font-size: 0.9rem;
+        padding: 8px 6px 8px 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .todo-app {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .todo-app h1 {
+        font-size: 1.2rem;
+    }
+
+    input {
+        font-size: 0.8rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    ul li {
+        font-size: 0.8rem;
+        padding: 6px 4px 6px 30px;
+    }
+
+    ul li span {
+        font-size: 1rem;
+        width: 25px;
+        height: 25px;
+    }
+}
+/* Styles for the custom message box */
+.custom-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #CDC1FF, #E5D9F2);
+    color: #333;
+    border: 1px solid  #CDC1FF;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fade-in 0.5s ease-in-out;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Styles for the custom confirmation dialog box */
+.custom-dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    text-align: center;
+}
+
+.custom-dialog-box p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.dialog-btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.confirm-btn {
+    background-color: #d9534f;
+    color: #fff;
+}
+
+.cancel-btn {
+    background-color: #5bc0de;
+    color: #fff;
+}
+
+.dialog-btn:hover {
+    opacity: 0.8;
+}
+
